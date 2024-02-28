@@ -39,7 +39,7 @@ const Featured = () => {
               </h3>
             </a>
 
-            <p className="mt-3 line-clamp-3 lg:line-clamp-none lg:text-xl text-sm/relaxed  text-gray-700">
+            <p className="mt-3 line-clamp-4 lg:line-clamp-none lg:text-xl text-sm/relaxed  text-gray-700">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Recusandae dolores, possimus pariatur animi temporibus nesciunt
               praesentium dolore sed nulla ipsum eveniet corporis quidem,
