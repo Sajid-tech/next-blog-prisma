@@ -1,14 +1,14 @@
 .container {
-  margin-top: 1px;
+  margin-top: 10px;
 }
 
 .title {
-  font-size: 75px;
+  font-size: 70px;
   font-weight: 500;
   color: orange;
 }
 
-.post {
+/* .post {
   margin-top: 10px;
   display: flex;
   align-items: center;
@@ -19,9 +19,9 @@
   flex: 1;
   height: 300px;
   position: relative;
-}
+} */
 
-.image {
+/* .image {
   object-fit: cover;
 }
 
@@ -33,9 +33,9 @@
   /* border: none;
 border-radius: 5px;
 background-color: #121c34; */
-}
+/* }  */
 
-.postTitle {
+/* .postTitle {
   font-size: 30px;
 
 }
@@ -51,9 +51,9 @@ background-color: #121c34; */
   border: none;
   border-radius: 5px;
   width: max-content;
-  background-color: white;
-  color: black;
-}
+  background-color: black;
+  color: white;
+} */
 
 @media screen and (max-width: 1280px) {
   .title {
@@ -66,9 +66,9 @@ background-color: #121c34; */
     font-size: 50px;
   }
 
-  .imgContainer {
+  /* .imgContainer {
     display: none;
-  }
+  } */
 }
 
 @media screen and (max-width: 768px) {

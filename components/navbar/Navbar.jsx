@@ -3,14 +3,16 @@ import styles from "./navbar.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import AuthLink from "../authLink/AuthLink";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 const Navbar = () => {
   return (
     <div className={styles.container}>
       <div className={styles.social}>
-        <Image src="/facebook.png" alt="facebook" width={24} height={24} />
-        <Image src="/instagram.png" alt="instagram" width={24} height={24} />
-        <Image src="/tiktok.png" alt="tiktok" width={24} height={24} />
+        <FaGithub className="h-6 w-6" />
+        <FaLinkedin className="h-6 w-6" />
+        <Image src="/facebook.png" alt="tiktok" width={24} height={24} />
         <Image src="/youtube.png" alt="youtube" width={24} height={24} />
       </div>
       <div className={styles.logo}>Sajid-Blog</div>
