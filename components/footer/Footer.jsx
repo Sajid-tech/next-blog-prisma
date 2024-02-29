@@ -8,7 +8,13 @@ const Footer = () => {
     <div className={styles.container}>
       <div className={styles.info}>
         <div className={styles.logo}>
-          <Image src="/logo.png" alt="lama blog" width={50} height={50} />
+          <Image
+            src="https://avatars.githubusercontent.com/u/80850448?s=400&u=fe1179cbd6eb0ffb2d042d91c524e7c851900e5e&v=4"
+            alt="lama blog"
+            className="border border-lime-400 rounded-3xl "
+            width={50}
+            height={50}
+          />
           <h1 className={styles.logoText}>Sajid-Blog</h1>
         </div>
         <p className={styles.desc}>
