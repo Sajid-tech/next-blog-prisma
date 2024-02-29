@@ -41,11 +41,11 @@ a {
   --softTextColor: #626262;
 }
 
-.container {
+/* .container {
   min-height: 100vh;
   background-color: var(--bg);
   color: var(--textColor);
-}
+} */
 
 .wrapper {
   max-width: 1536px;
