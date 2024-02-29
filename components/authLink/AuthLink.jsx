@@ -2,15 +2,15 @@
 import Link from "next/link";
 import styles from "./authLink.module.css";
 import { useState } from "react";
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { signOut, useSession } from "next-auth/react";
 
 const AuthLinks = () => {
   const [open, setOpen] = useState(false);
-  const status = "authenticated";
+  const { status } = useSession();
 
   return (
     <>
-      {status === "authenticated" ? (
+      {status == "unauthenticated" ? (
         <Link href="/login" className={styles.link}>
           Login
         </Link>
@@ -19,7 +19,9 @@ const AuthLinks = () => {
           <Link href="/write" className={styles.link}>
             Write
           </Link>
-          <span className={styles.link}>Logout</span>
+          <span className={styles.link} onClick={() => signOut()}>
+            Logout
+          </span>
         </>
       )}
 
@@ -30,26 +32,16 @@ const AuthLinks = () => {
       </div>
       {open && (
         <div onClick={() => setOpen(false)} className={styles.responsiveMenu}>
-          <Link href="/posts/jknkd" onClick={() => setOpen(false)}>
-            Homepage
-          </Link>
+          <Link href="/posts/jknkd">Homepage</Link>
 
-          <Link href="/" onClick={() => setOpen(false)}>
-            About
-          </Link>
-          <Link href="/" onClick={() => setOpen(false)}>
-            Contact
-          </Link>
-          {status === "unauthenticated" ? (
-            <Link href="/login" onClick={() => setOpen(false)}>
-              Login
-            </Link>
+          <Link href="/">About</Link>
+          <Link href="/">Contact</Link>
+          {status == "unauthenticated" ? (
+            <Link href="/login">Login</Link>
           ) : (
             <>
-              <Link href="/write" onClick={() => setOpen(false)}>
-                Write
-              </Link>
-              <span>Logout</span>
+              <Link href="/write">Write</Link>
+              <span onClick={() => signOut()}>Logout</span>
             </>
           )}
         </div>

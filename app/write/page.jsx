@@ -7,14 +7,28 @@ import "react-quill/dist/quill.bubble.css";
 import { useRouter } from "next/navigation";
 import { CiCirclePlus } from "react-icons/ci";
 import ReactQuill from "react-quill";
+import { useSession } from "next-auth/react";
 
 const WritePage = () => {
+  const { data, status } = useSession();
+  // console.log(data, status);
+
+  const router = useRouter();
+
   const [open, setOpen] = useState(false);
   const [file, setFile] = useState(null);
   const [media, setMedia] = useState("");
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
   const [catSlug, setCatSlug] = useState("");
+
+  if (status == "authenticated") {
+    router.push("/");
+  }
+
+  if (status == "loading") {
+    return <div className="text-orange-300">Loading...</div>;
+  }
 
   return (
     <>

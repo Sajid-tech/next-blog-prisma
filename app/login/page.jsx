@@ -4,7 +4,8 @@ import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
-  const { status } = useSession();
+  const { data, status } = useSession();
+  // console.log(data, status);
 
   const router = useRouter();
 
