@@ -81,7 +81,7 @@ const SinglePage = ({ params }) => {
             dangerouslySetInnerHTML={{ __html: postData?.desc }}
           ></div>
           <div className={styles.comment}>
-            <Comments />
+            <Comments postSlug={slug} />
           </div>
         </div>
         <Menu />

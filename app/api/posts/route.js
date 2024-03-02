@@ -1,6 +1,7 @@
 import prisma from "@/connect"
+import { getAuthSession } from "@/utils/auth";
 import { NextResponse } from "next/server"
-import { getAuthSession } from "../auth/[...nextauth]/route";
+
 
 export const GET = async (req) => {
 
@@ -19,6 +20,7 @@ export const GET = async (req) => {
         },
     };
 
+    // by using $transaction u you can use many query inside it 
     try {
         const [posts, count] = await prisma.$transaction([
             prisma.post.findMany(query),

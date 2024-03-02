@@ -5,6 +5,9 @@
   .title {
     color: var(--softTextColor);
     margin-bottom: 30px;
+    font-weight: 700;
+    font-size: larger;
+    color: white;
   }
   
   .write {
@@ -17,6 +20,7 @@
   .input {
     padding: 20px;
     width: 100%;
+    
   }
   
   .button {

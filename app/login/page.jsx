@@ -2,16 +2,20 @@
 
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const LoginPage = () => {
-  const { data, status } = useSession();
+  const { status } = useSession();
   // console.log(data, status);
 
   const router = useRouter();
 
-  if (status == "authenticated") {
-    router.push("/");
-  }
+  useEffect(() => {
+    // Move navigation to "/" outside of the render cycle
+    if (status === "authenticated") {
+      router.push("/");
+    }
+  }, [status, router]);
 
   if (status == "loading") {
     return <div className="text-orange-300">Loading...</div>;
