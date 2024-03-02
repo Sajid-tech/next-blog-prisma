@@ -14,14 +14,11 @@ const SinglePage = ({ params }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3000/api/posts/${slug}`,
-          {
-            headers: {
-              "Cache-Control": "no-store",
-            },
-          }
-        );
+        const response = await axios.get(`/api/posts/${slug}`, {
+          headers: {
+            "Cache-Control": "no-store",
+          },
+        });
         setPostData(response.data);
       } catch (error) {
         setError("Failed to fetch data");

@@ -9,12 +9,15 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-import ReactQuill from "react-quill";
+
 import { useSession } from "next-auth/react";
 import { app } from "@/utils/firebase";
+import dynamic from "next/dynamic";
 
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 const WritePage = () => {
   const { data, status } = useSession();
+
   const router = useRouter();
 
   const [open, setOpen] = useState(false);
@@ -200,7 +203,6 @@ const WritePage = () => {
               </button>
             </div>
           )}
-
           <ReactQuill
             className={styles.textArea}
             theme="bubble"
@@ -209,6 +211,7 @@ const WritePage = () => {
             placeholder="Tell your story..."
           />
         </div>
+
         <button className={styles.publish} onClick={handleSubmit}>
           Publish
         </button>
