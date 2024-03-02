@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./card.module.css";
 import Link from "next/link";
 
-const Card = () => {
+const Card = ({ key, item }) => {
   return (
     <>
       {/* <div className={styles.container}>
@@ -36,9 +36,9 @@ const Card = () => {
             dateTime="2022-10-10"
             className="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900"
           >
-            <span>28.02.2024</span>
+            <span>{item.createdAt.substring(0, 10)} </span>
             <span className="w-px flex-1 bg-gray-900/10"></span>
-            <span className=" text-red-700">Culture</span>
+            <span className=" text-red-700">{item.catSlug}</span>
           </time>
         </div>
 
@@ -54,23 +54,19 @@ const Card = () => {
           <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
             <Link href="#">
               <h3 className="font-bold uppercase text-gray-900">
-                Finding the right guitar for your style - 5 tips
+                {item.title}
               </h3>
             </Link>
 
-            <p className="mt-2 line-clamp-5 lg:line-clamp-none text-sm/relaxed text-gray-700">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Recusandae dolores, possimus pariatur animi temporibus nesciunt
-              praesentium dolore sed nulla ipsum eveniet corporis quidem,
-              mollitia itaque minus soluta, voluptates neque explicabo tempora
-              nisi culpa eius atque dignissimos. Molestias explicabo corporis
-              voluptatem?
-            </p>
+            <p
+              className="mt-2 line-clamp-5 lg:line-clamp-none text-sm/relaxed text-gray-700"
+              dangerouslySetInnerHTML={{ __html: item?.desc.substring(0, 60) }}
+            ></p>
           </div>
 
           <div className="sm:flex sm:items-end sm:justify-end">
             <Link
-              href="#"
+              href={`/posts/${item.slug}`}
               className="block bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400"
             >
               Read Blog

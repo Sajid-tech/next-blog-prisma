@@ -20,7 +20,7 @@
   align-items: center;
   gap: 10px;
   text-transform: capitalize;
-   width: 15%;
+  width: 15%;
   height: 80px;
   justify-content: center; 
   border-radius: 10px;
@@ -50,10 +50,10 @@
   background-color: #5e4fff31;
 }
 
-.image {
-  border-radius: 30%;
+/* .image {
+  border-radius: 50%;
 
-}
+} */
 
 @media screen and (max-width: 1280px) {
   .category {

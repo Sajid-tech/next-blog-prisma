@@ -5,6 +5,7 @@ import { PrismaAdapter } from "@auth/prisma-adapter"
 
 
 import NextAuth from "next-auth"
+import { getServerSession } from "next-auth"
 
 import GoogleProvider from "next-auth/providers/google"
 
@@ -20,3 +21,5 @@ const handler = NextAuth({
 })
 
 export { handler as GET, handler as POST }
+
+export const getAuthSession = () => getServerSession(handler)
