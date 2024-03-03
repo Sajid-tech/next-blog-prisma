@@ -38,7 +38,7 @@ const LoginPage = () => {
           Sign In With Google
         </button>
         <p className=" font-sm  text-sm text-orange-400 my-4 text-center  ">
-          NOTE: ONLY ADMIN CAN VIEW THIS PAGE , HOWEVER IF YOU LOGIN , YOU CAN
+          NOTE: ONLY ADMIN CAN POST THE BLOGS ,HOWEVER IF YOU LOGIN, YOU CAN
           ONLY COMMENTS ON THE POSTS
         </p>
       </div>

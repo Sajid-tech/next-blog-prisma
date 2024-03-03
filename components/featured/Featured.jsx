@@ -1,9 +1,26 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import styles from "./featured.module.css";
 import Image from "next/image";
+import axios from "axios";
 
 const Featured = () => {
+  const [featuredPost, setFeaturedPost] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`/api/posts?page=${2}`);
+        const data = res.data;
+        console.log("featured data", data);
+
+        setFeaturedPost(data.posts[0]);
+      } catch (error) {
+        console.log(error, "error in featured post");
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <>
       <div className={styles.container}>
@@ -35,23 +52,19 @@ const Featured = () => {
           <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
             <a href="/">
               <h3 className="font-bold text-2xl lg:text-5xl uppercase text-gray-900">
-                Finding the right guitar for your style - 5 tips
+                {featuredPost?.title}
               </h3>
             </a>
 
-            <p className="mt-3 line-clamp-4 lg:line-clamp-none lg:text-xl text-sm/relaxed  text-gray-700">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Recusandae dolores, possimus pariatur animi temporibus nesciunt
-              praesentium dolore sed nulla ipsum eveniet corporis quidem,
-              mollitia itaque minus soluta, voluptates neque explicabo tempora
-              nisi culpa eius atque dignissimos. Molestias explicabo corporis
-              voluptatem?
-            </p>
+            <p
+              className="mt-3 line-clamp-4 lg:line-clamp-6  lg:text-xl text-sm/relaxed  text-gray-700"
+              dangerouslySetInnerHTML={{ __html: featuredPost?.desc }}
+            ></p>
           </div>
 
           <div className="">
             <a
-              href="#"
+              href={`/posts/${featuredPost?.slug}`}
               className="block bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400"
             >
               Read Blog
@@ -62,7 +75,7 @@ const Featured = () => {
         <div className="hidden sm:block sm:basis-72">
           <img
             alt=""
-            src="/p1.jpeg"
+            src={featuredPost?.img}
             className=" aspect-auto h-full w-full object-cover"
           />
         </div>

@@ -7,7 +7,7 @@
     margin-bottom: 30px;
     font-weight: 700;
     font-size: larger;
-    color: white;
+    color: black;
   }
   
   .write {
@@ -21,6 +21,8 @@
   .input {
     padding: 20px;
     width: 100%;
+   
+    
     
   }
   

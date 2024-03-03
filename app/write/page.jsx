@@ -16,16 +16,17 @@ import dynamic from "next/dynamic";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 const WritePage = () => {
-  const { data, status } = useSession();
+  const { data: session, status } = useSession();
 
   const router = useRouter();
-
   const [open, setOpen] = useState(false);
   const [file, setFile] = useState(null); // open media items
   const [media, setMedia] = useState("");
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
   const [catSlug, setCatSlug] = useState("");
+
+  //only specified user can see this page
 
   //store img on firebase storage
   useEffect(() => {
@@ -129,7 +130,7 @@ const WritePage = () => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              className="w-10 h-10 text-white"
+              className="w-10 h-10 text-black"
             >
               <path
                 stroke-linecap="round"

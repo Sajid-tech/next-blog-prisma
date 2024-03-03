@@ -50,7 +50,7 @@ const Comments = ({ postSlug }) => {
           </button>
         </div>
       ) : (
-        <Link href="/login" className=" text-orange-300">
+        <Link href="/login" className=" text-orange-300 text-3xl">
           Login to write a comment
         </Link>
       )}

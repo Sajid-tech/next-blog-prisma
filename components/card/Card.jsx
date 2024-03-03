@@ -45,22 +45,22 @@ const Card = ({ key, item }) => {
         <div className=" hidden sm:block sm:basis-56">
           <img
             alt=""
-            src="/p1.jpeg"
+            src={item?.img}
             className="aspect-square h-full w-full object-cover"
           />
         </div>
 
         <div className="flex flex-1  flex-col justify-between">
           <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-            <Link href="#">
+            <Link href={`/posts/${item.slug}`}>
               <h3 className="font-bold uppercase text-gray-900">
                 {item.title}
               </h3>
             </Link>
 
             <p
-              className="mt-2 line-clamp-5 lg:line-clamp-none text-sm/relaxed text-gray-700"
-              dangerouslySetInnerHTML={{ __html: item?.desc.substring(0, 60) }}
+              className="mt-2 line-clamp-5 lg:line-clamp-6 text-sm/relaxed text-gray-700"
+              dangerouslySetInnerHTML={{ __html: item?.desc }}
             ></p>
           </div>
 

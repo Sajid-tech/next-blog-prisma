@@ -8,22 +8,27 @@ export const GET = async (req) => {
     const { searchParams } = new URL(req.url);
 
     const page = searchParams.get("page");
-    const cat = searchParams.get("cat");
 
+    const cat = searchParams.get("cat");
     const POST_PER_PAGE = 3;
 
     const query = {
         take: POST_PER_PAGE,
         skip: POST_PER_PAGE * (page - 1),
         where: {
+
             ...(cat && { catSlug: cat }),
         },
+        // orderBy: {
+        //     createdAt: 'desc', // Sort by creation date in descending order
+        // },
     };
 
     // by using $transaction u you can use many query inside it 
     try {
         const [posts, count] = await prisma.$transaction([
             prisma.post.findMany(query),
+
             prisma.post.count({ where: query.where }),
         ]);
 
