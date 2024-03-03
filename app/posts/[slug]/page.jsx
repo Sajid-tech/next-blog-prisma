@@ -1,10 +1,10 @@
 "use client";
-import Menu from "@/components/Menu/Menu";
 import styles from "./singlePage.module.css";
 import Image from "next/image";
 import Comments from "@/components/comments/Comments";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Menu from "@/components/menu/Menu";
 
 const SinglePage = ({ params }) => {
   const { slug } = params;
