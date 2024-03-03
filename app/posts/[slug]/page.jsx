@@ -29,7 +29,7 @@ const SinglePage = ({ params }) => {
 
     // Cleanup function if needed
     return () => {
-      // Any cleanup code here
+      // Any cleanup code
     };
   }, [slug]); // Run effect only when slug changes
 
