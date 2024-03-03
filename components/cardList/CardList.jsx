@@ -1,34 +1,43 @@
-import React from "react";
+/* eslint-disable @next/next/no-async-client-component */
+"use client";
+import React, { useEffect, useState } from "react";
 import Pagination from "../pagination/Pagination";
 import styles from "./cardList.module.css";
 import Card from "../card/Card";
 import axios from "axios";
 
-const getData = async (page, cat) => {
-  let url = process.env.NEXTAUTH_URL;
-  try {
-    const response = await axios.get(
-      `${url}/api/posts?page=${page}&cat=${cat || ""}`,
-      {
-        headers: {
-          "Cache-Control": "no-store",
-        },
-      }
-    );
-    console.log("response", response.data);
-    return response.data;
-  } catch (error) {
-    console.log("errror", error);
-  }
-};
-
-const CardList = async ({ page, cat }) => {
-  const { posts, count } = await getData(page, cat);
-
+const CardList = ({ page, cat }) => {
+  const [posts, setPosts] = useState([]);
+  const [count, setCount] = useState(0);
   const POST_PER_PAGE = 3;
+  const [hasPrev, setHasPrev] = useState(false);
+  const [hasNext, setHasNext] = useState(false);
 
-  const hasPrev = POST_PER_PAGE * (page - 1) > 0;
-  const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `/api/posts?page=${page}&cat=${cat || ""}`,
+          {
+            headers: {
+              "Cache-Control": "no-store",
+            },
+          }
+        );
+        console.log("response", response.data);
+        setPosts(response.data.posts);
+        setCount(response.data.count);
+        setHasPrev(POST_PER_PAGE * (page - 1) > 0);
+        setHasNext(
+          POST_PER_PAGE * (page - 1) + POST_PER_PAGE < response.data.count
+        );
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+
+    fetchData();
+  }, [page, cat]);
 
   return (
     <div className={styles.container}>
