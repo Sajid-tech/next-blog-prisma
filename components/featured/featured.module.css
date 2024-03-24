@@ -3,7 +3,7 @@
 }
 
 .title {
-  font-size: 70px;
+  font-size: 60px;
   font-weight: 500;
   color: orange;
 }
@@ -55,15 +55,16 @@ background-color: #121c34; */
   color: white;
 } */
 
+
 @media screen and (max-width: 1280px) {
   .title {
-    font-size: 60px;
+    font-size: 40px;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .title {
-    font-size: 50px;
+    font-size: 40px;
   }
 
   /* .imgContainer {

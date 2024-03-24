@@ -6,30 +6,6 @@ import Link from "next/link";
 const Card = ({ key, item }) => {
   return (
     <>
-      {/* <div className={styles.container}>
-      <div className={styles.imageContainer}>
-        <Image src="/p1.jpeg" alt="" fill className={styles.image} />
-      </div>
-
-      <div className={styles.textContainer}>
-        <div className={styles.detail}>
-          <span className={styles.date}>28.02.2024 - </span>
-          <span className={styles.category}> Culture</span>
-        </div>
-        <Link href={"/"}>
-          <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
-        </Link>
-
-        <p className={styles.desc}>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias fugiat
-          nisi neque unde rem iste corrupti suscipit labore, fuga odit, cumque
-          dolores ipsum in. Repellendus, tempora officiis? Vel, sit illum!
-        </p>
-        <Link href={"/"} className={styles.link}>
-          Read More
-        </Link>
-      </div>
-    </div> */}
       <article className="flex mt-4 bg-green-100 transition hover:shadow-xl">
         <div className=" rotate-180 p-2 [writing-mode:_vertical-lr]  bg-sky-100 ">
           <time
@@ -53,7 +29,7 @@ const Card = ({ key, item }) => {
         <div className="flex flex-1  flex-col justify-between">
           <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
             <Link href={`/posts/${item.slug}`}>
-              <h3 className="font-bold uppercase text-gray-900">
+              <h3 className="font-bold uppercase text-xl text-gray-900">
                 {item.title}
               </h3>
             </Link>

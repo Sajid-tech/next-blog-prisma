@@ -1,10 +1,10 @@
-import { Inter } from "next/font/google";
+import { Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import Provider from "@/provider/Provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Roboto_Mono({ subsets: ["latin"], weight: ['400'] });
 
 export const metadata = {
   title: "Blog",

@@ -18,10 +18,9 @@ const Footer = () => {
           <h1 className={styles.logoText}>Sajid-Blog</h1>
         </div>
         <p className={styles.desc}>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim
-          necessitatibus similique aspernatur obcaecati veritatis. Aperiam cum
-          porro sequi, totam minima consequuntur, aspernatur deleniti vero
-          repellendus dorales.
+          Welcome to Sajid Dev Blog, where creativity knows no bounds! Join me
+          on a journey of exploration through stories and innovative ideas. From
+          thought-provoking narratives to inventive concepts.
         </p>
         <div className={styles.icons}>
           <Image src="/facebook.png" alt="" width={18} height={18} />

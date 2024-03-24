@@ -39,7 +39,9 @@ const Comments = ({ postSlug }) => {
     <div className={styles.container}>
       <h1 className={styles.title}>Comments</h1>
       {status === "authenticated" ? (
-        <div className={styles.write}>
+        <div
+          className={`${styles.write} border border-yellow-300 rounded-md border-b-4 p-4`}
+        >
           <textarea
             onChange={(e) => setDesc(e.target.value)}
             placeholder="write a comment..."
@@ -50,7 +52,10 @@ const Comments = ({ postSlug }) => {
           </button>
         </div>
       ) : (
-        <Link href="/login" className=" text-orange-300 text-3xl">
+        <Link
+          href="/login"
+          className=" text-orange-300 text-3xl border border-orange-400 border-r-4 rounded-md  hover:border-yellow-400  hover:text-blue-300"
+        >
           Login to write a comment
         </Link>
       )}
@@ -58,7 +63,10 @@ const Comments = ({ postSlug }) => {
         {isLoading
           ? "loading"
           : data?.map((item) => (
-              <div className={styles.comment} key={item?._id}>
+              <div
+                className={`${styles.comment} border border-yellow-300 rounded-md p-2 border-b-4`}
+                key={item?._id}
+              >
                 <div className={styles.user}>
                   {item?.user?.image && (
                     <Image
