@@ -65,12 +65,14 @@ const SinglePage = ({ params }) => {
             </div>
           </div>
         </div>
+
         {postData?.img && (
           <div className={styles.imageContainer}>
             <Image src={postData?.img} alt="" fill className={styles.image} />
           </div>
         )}
       </div>
+      <hr className="border-2 border-orange-600 mt-4" />
       <div className={styles.content}>
         <div className={styles.post}>
           <div
