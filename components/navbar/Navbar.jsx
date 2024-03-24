@@ -19,7 +19,7 @@ const Navbar = () => {
         <Image src="/facebook.png" alt="tiktok" width={24} height={24} />
         <Image src="/youtube.png" alt="youtube" width={24} height={24} />
       </div>
-      <div className={styles.logo}>Sajid-Blog</div>
+      <div className={styles.logo}>Sajid-Dev</div>
       <div className={styles.links}>
         <Link href="/" className={styles.link}>
           Homepage
