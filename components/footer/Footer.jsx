@@ -18,7 +18,7 @@ const Footer = () => {
           <h1 className={styles.logoText}>Sajid-Blog</h1>
         </div>
         <p className={styles.desc}>
-          Welcome to Sajid Dev Blog, where creativity knows no bounds! Join me
+          Welcome to Sajid Dev Blog, where creativity knows no bounds ! Join me
           on a journey of exploration through stories and innovative ideas. From
           thought-provoking narratives to inventive concepts.
         </p>
